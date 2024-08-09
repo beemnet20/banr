@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  service:
+    build: service
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./service:/app/service"
+    environment:
+      - "DEBUG=1"
+
+  client:
+    build: client
+    depends_on:
+      - service
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./client:/app"
+
