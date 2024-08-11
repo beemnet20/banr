@@ -24,12 +24,6 @@
       bordered
     >
       <q-list>
-        <q-item-label
-          header
-        >
-          Links
-        </q-item-label>
-
         <EssentialLink
           v-for="link in linksList"
           :key="link.title"
@@ -59,9 +53,14 @@ const linksList = [
     link: '/'
   },
   {
-    title: 'Help',
-    icon: 'help',
-    link: '/help'
+    title: 'Projects',
+    icon: 'build',
+    link: '/projects'
+  },
+  {
+    title: 'Expenditures',
+    icon: 'money',
+    link: '/expenditures'
   }
 ]
 

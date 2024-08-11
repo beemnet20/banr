@@ -1,14 +1,21 @@
 <template>
   <q-page class="">
     <q-spinner v-if="loading" />
-    <div class="row">
-      <HighlightCard :value="projectsCount" description="Projects" />
+    <div class="row q-ma-sm">
+      <HighlightCard :value="activeProjectsCount" description="active projects" />
+      <HighlightCard :value="completedProjectsCount" description="completed projects" />
       <HighlightCard :value="contractorsCount" description="Contractors" />
       <HighlightCard prefix="$" :value="expendituresAmount" description="Spent" />
 
     </div>
-    <div v-if="projects.length > 0">
-      <ProjectsMap :projects="projects"/>
+    <div v-if="projects.length > 0" class="row">
+      <div class="col-12 col-md-8">
+        <ProjectsMap :projects="projects" />
+      </div>
+      <div class="col-12 col-md-4">
+        <ProjectPhaseChart :projects="projects" />
+      </div>
+
     </div>
   </q-page>
 </template>
@@ -18,16 +25,18 @@
 
 import axios from 'axios';
 import HighlightCard from 'src/components/HighlightCard.vue';
+import ProjectPhaseChart from 'src/components/ProjectPhaseChart.vue';
 import ProjectsMap from 'src/components/ProjectsMap.vue';
 
 export default {
   data() {
     return {
       loading: true,
-      projectsCount: '',
+      activeProjectsCount: 0,
+      completedProjectsCount: 0,
       projects: [],
-      expendituresAmount: '',
-      contractorsCount: ''
+      expendituresAmount: 0,
+      contractorsCount: 0
     };
   },
   created() {
@@ -37,8 +46,9 @@ export default {
 
   },
   components: {
-    HighlightCard, 
-    ProjectsMap
+    HighlightCard,
+    ProjectsMap,
+    ProjectPhaseChart
   },
   methods: {
     async fetchData(endpoint) {
@@ -47,7 +57,8 @@ export default {
         const data = response.data
         switch (endpoint) {
           case 'projects':
-            this.projectsCount = data.length;
+            this.activeProjectsCount = data.filter(project => project.project_status === 'active').length;
+            this.completedProjectsCount = data.filter(project => project.project_status === 'completed').length;
             this.projects = data;
             break;
           case 'expenditures':

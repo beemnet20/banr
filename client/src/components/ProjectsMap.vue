@@ -26,7 +26,7 @@ export default {
   },
   mounted() {
     // Initialize the map
-    const map = L.map('map').setView([39.8283, -98.5795], 4);
+    const map = L.map('map', { attributionControl: false }).setView([39.8283, -98.5795], 4);
 
     // Add a tile layer to the map
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -35,21 +35,18 @@ export default {
 
     // Place pins on the map for each project
     this.projects.forEach(project => {
-      this.addPinForzipcode(project.zipcode, project.city, map);
+      this.addPinForzipcode(project, map);
     });
   },
   methods: {
-    async addPinForzipcode(zipcode, city, map) {
-      // Use Nominatim geocoding API to get latitude and longitude from zipcode
-      const response = await axios.get("http://localhost:8000/api/get-lat-lon", { params: { zipcode: zipcode } })
+    async addPinForzipcode(project, map) {
+      const response = await axios.get("http://localhost:8000/api/get-lat-lon", { params: { zipcode: project.zipcode } })
       const data = response.data
       if (data) {
         const lat = data.latitude;
         const lon = data.longitude;
-
         // Add a marker to the map at the geocoded location
-        L.marker([lat, lon]).addTo(map)
-          .bindPopup(`${city}`)
+        L.marker([lat, lon]).addTo(map).bindPopup(`${project.project_name}</br>${project.city},${project.state}`)
       }
     }
   }
@@ -59,8 +56,10 @@ export default {
 <style scoped>
 .map-container {
   height: 400px;
-  /* Set a fixed height for the map */
   width: 100%;
-  /* Make the map fill the card width */
+}
+
+.leaflet-control-attribution {
+  display: none;
 }
 </style>
