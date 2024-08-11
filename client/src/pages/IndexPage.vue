@@ -2,10 +2,10 @@
   <q-page class="">
     <q-spinner v-if="loading" />
     <div class="row q-ma-sm">
-      <HighlightCard :value="activeProjectsCount" description="active projects" />
-      <HighlightCard :value="completedProjectsCount" description="completed projects" />
-      <HighlightCard :value="contractorsCount" description="Contractors" />
-      <HighlightCard prefix="$" :value="expendituresAmount" description="Spent" />
+      <HighlightCard :value="activeProjectsCount" description=" active projects" />
+      <HighlightCard :value="completedProjectsCount" description=" completed projects" />
+      <HighlightCard :value="contractorsCount" description=" contractors" />
+      <HighlightCard prefix="$" :value="expendituresAmount" description=" spent" />
 
     </div>
     <div v-if="projects.length > 0" class="row">

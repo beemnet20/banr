@@ -59,8 +59,13 @@ const linksList = [
   },
   {
     title: 'Expenditures',
-    icon: 'money',
+    icon: 'paid',
     link: '/expenditures'
+  },
+  {
+    title: 'Contractors',
+    icon: 'engineering',
+    link: '/contractors'
   }
 ]
 

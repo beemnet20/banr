@@ -35,9 +35,6 @@ export default {
                 },
                 xaxis: {
                     categories: [],
-                    title: {
-                        text: 'Project Phases'
-                    }
                 },
                 yaxis: {
                     title: {
