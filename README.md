@@ -1,6 +1,6 @@
 # banr (build a nuclear reactor)
 
-banr is a mock project management application built wit `django`, `django rest framework`, `quasar`, and `vue`. 
+banr is a mock nuclear reactor construction project management application built wit `django`, `django rest framework`, `quasar`, and `vue`. 
 
 I created this project 
 - to learn `vue` and `quasar`
