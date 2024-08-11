@@ -101,6 +101,7 @@ class NuclearReactorConstructionProject(models.Model):
     budget = models.FloatField(default=0.0, null=True)
     total_expenses = models.FloatField(default=0.0, null=True)
     contractors = models.ManyToManyField('Contractor', related_name="projects")
+    power_rating_gw = models.IntegerField(default=1, null=True)
     notes = models.TextField(null=True)
 
     def is_active(self):
