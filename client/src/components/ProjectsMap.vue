@@ -33,20 +33,22 @@ export default {
       maxZoom: 19,
     }).addTo(map);
 
-    // Place pins on the map for each project
+    const factoryIcon = L.icon({iconUrl: '/images/reactor.png', iconSize: [50,50]})
+
     this.projects.forEach(project => {
-      this.addPinForzipcode(project, map);
+      this.addPinForzipcode(project, map, factoryIcon);
     });
+
   },
   methods: {
-    async addPinForzipcode(project, map) {
+    async addPinForzipcode(project, map, icon) {
       const response = await axios.get("http://localhost:8000/api/get-lat-lon", { params: { zipcode: project.zipcode } })
       const data = response.data
       if (data) {
         const lat = data.latitude;
         const lon = data.longitude;
         // Add a marker to the map at the geocoded location
-        L.marker([lat, lon]).addTo(map).bindPopup(`${project.project_name}</br>${project.city},${project.state}`)
+        L.marker([lat, lon], {icon: icon}).addTo(map).bindPopup(`${project.project_name}</br>${project.city},${project.state}`)
       }
     }
   }
