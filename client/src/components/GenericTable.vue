@@ -13,7 +13,13 @@
           <template v-slot:body="props">
             <q-tr :props="props">
               <q-td v-for="col in columns" :key="col.name" :props="props">
-                {{ props.row[col.name] }}
+                <span v-if="col.name === 'id'">
+                  <a :href="'/'+apiEndpoint+'/'+props.row[col.name]">{{ props.row[col.name] }}</a>
+                </span>
+                <span v-if="col.name !='id' ">
+                  {{ props.row[col.name] }}
+                </span>
+               
               </q-td>
             </q-tr>
           </template>
@@ -28,7 +34,7 @@
   export default {
     props: {
       // The URL from which to fetch data
-      apiUrl: {
+      apiEndpoint: {
         type: String,
         required: true
       },
@@ -53,7 +59,7 @@
     async mounted() {
       try {
         // Fetch data from the provided URL
-        const response = await axios.get(this.apiUrl);
+        const response = await axios.get(`http://localhost:8000/api/${this.apiEndpoint}`);
         this.data = response.data;
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -65,7 +71,6 @@
   </script>
   
   <style scoped>
-  /* Optional styling */
   .q-card {
     max-width: 100%;
   }

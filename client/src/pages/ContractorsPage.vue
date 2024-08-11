@@ -6,7 +6,7 @@
   
   
   
-      <GenericTable apiUrl="http://localhost:8000/api/contractors" :columns="tableColumns" />
+      <GenericTable apiEndpoint="contractors" :columns="tableColumns" />
   
     </q-page>
   </template>
