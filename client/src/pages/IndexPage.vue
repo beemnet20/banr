@@ -4,10 +4,10 @@
     <div class="row">
       <HighlightCard :value="projectsCount" description="Projects" />
       <HighlightCard :value="contractorsCount" description="Contractors" />
-      <HighlightCard :value="expendituresAmount" description="Spent" />
+      <HighlightCard prefix="$" :value="expendituresAmount" description="Spent" />
 
     </div>
-    <div class="">
+    <div v-if="projects.length > 0">
       <ProjectsMap :projects="projects"/>
     </div>
   </q-page>
@@ -52,7 +52,7 @@ export default {
             break;
           case 'expenditures':
             const expenses = data.map(item => item.amount)
-            this.expendituresAmount = "$"+ expenses.reduce(
+            this.expendituresAmount = expenses.reduce(
               (accumulator, currentValue) => accumulator + currentValue,
               0,
             );

@@ -88,7 +88,7 @@ class NuclearReactorConstructionProject(models.Model):
     project_name = models.CharField(max_length=25, null=False)
     city = models.CharField(max_length=25, null=True)
     state = models.CharField(max_length=25, null=True)
-    zip = models.CharField(max_length=10, null=True)
+    zipcode = models.CharField(max_length=10, null=True)
     project_site_boundaries = models.JSONField(null=True)
     project_status = models.CharField(max_length=10, choices=PROJECT_STATUS_CHOICES,
                                       default=ACTIVE, null=True)

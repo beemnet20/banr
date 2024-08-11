@@ -4,6 +4,7 @@
       <div class="row items-center">
         <!-- Large Numeric Value -->
         <div class="">
+          <span class="text-h3">{{ prefix }}</span>
           <span class="text-h3">{{ value }}</span>
         </div>
         <!-- Smaller Text Description -->
@@ -25,6 +26,10 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    prefix: {
+      type: String, 
+      required: false
     }
   }
 }
