@@ -33,7 +33,10 @@ This should launch a client app at [localhost:9000](http://localhost:9000)
 ### Note
 The data that comes with this repo is fictitious and used only for dev/practice purposes. 
 
-### Screenshot
-![alt text](image.png)
+### Screenshots
+![homepage](screenshots/home.png)
+
+![projects](screenshots/projects.png)
+
 
 
