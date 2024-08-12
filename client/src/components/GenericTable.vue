@@ -58,7 +58,7 @@
     },
     async mounted() {
       try {
-        // Fetch data from the provided URL
+        // Fetch data from the provided endpoint
         const response = await axios.get(`http://localhost:8000/api/${this.apiEndpoint}`);
         this.data = response.data;
       } catch (error) {

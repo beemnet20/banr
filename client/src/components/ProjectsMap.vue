@@ -60,8 +60,4 @@ export default {
   height: 400px;
   width: 100%;
 }
-
-.leaflet-control-attribution {
-  display: none;
-}
 </style>
