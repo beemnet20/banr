@@ -7,7 +7,7 @@ I created this project
 - bursh up on `django` which I have not used in a while
 - to learn about nuclear reactors and what goes into building them. 
 
-The backend contains 3 models `NuclearReactorConstructionProject`, `Expenditure`, `Contractor`. They correspond to 3 api endpoints `/projects`, `/expenditures`, and `/contractors`. I've implemented CRUD operations using the UI (see screenshots below).  
+The backend contains 3 models `NuclearReactorConstructionProject`, `Expenditure`, `Contractor`. They correspond to 3 api endpoints `/projects`, `/expenditures`, and `/contractors`. I've implemented CRUD operations for the projects model using the UI (see screenshots below).  
 
 ### Try it yourself
 The easiet way to launch the app is using docker compose. 
