@@ -93,14 +93,14 @@ class NuclearReactorConstructionProject(models.Model):
     project_status = models.CharField(max_length=10, choices=PROJECT_STATUS_CHOICES,
                                       default=ACTIVE, null=True)
     project_phase = models.CharField(max_length=25, choices=PROJECT_PHASE_CHOICES, default = DESIGN, null=True)
-    estimated_construction_start_date = models.DateField("estimated construction start date")
+    estimated_construction_start_date = models.DateField("estimated construction start date", null=True)
     construction_start_date = models.DateField("construction start date", null=True)
     estimated_construction_completion_date = models.DateField("estimated construction completion date", null=True)
     construction_completion_date = models.DateField("construction completion date", null = True)
     estimated_cost = models.FloatField(default=0.0, null=True)
     budget = models.FloatField(default=0.0, null=True)
     total_expenses = models.FloatField(default=0.0, null=True)
-    contractors = models.ManyToManyField('Contractor', related_name="projects")
+    contractors = models.ManyToManyField('Contractor', related_name="projects", null=True)
     power_rating_gw = models.IntegerField(default=1, null=True)
     notes = models.TextField(null=True)
 
