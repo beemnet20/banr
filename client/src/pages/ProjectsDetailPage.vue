@@ -25,7 +25,7 @@
                         label="Project Phase" :disable="isLoading" />
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="q-ma-sm">
+                    <div v-if="project.zipcode" class="q-ma-sm">
                         <ProjectBoundaries @update-boundaries="onUpdateBoundaries" :zipcode="project.zipcode"
                             :projectSiteBoundaries="project.project_site_boundaries" />
                     </div>
