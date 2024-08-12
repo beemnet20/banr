@@ -4,7 +4,7 @@
 
     <div class="text-h6">Expenditures</div>
 
-
+    <q-btn to="/expenditures/new" label="Add a new expense" class="q-my-md" color="primary"/>
 
     <GenericTable apiEndpoint="expenditures" :columns="tableColumns" />
 

@@ -12,7 +12,7 @@
         <q-form @submit="onSubmit" class="q-gutter-md q-mt-md">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <q-input class="q-ma-sm" filled v-model="project.project_name" label="Project Name"
+                    <q-input :rules="[val => !!val || 'Project name is required']" class="q-ma-sm" filled v-model="project.project_name" label="Project Name"
                         :disable="isLoading" />
                     <q-input class="q-ma-sm" filled v-model="project.city" label="City" :disable="isLoading" />
                     <q-select class="q-ma-sm" :options="usStateOptions" filled v-model="project.state" label="State"

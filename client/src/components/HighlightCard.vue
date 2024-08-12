@@ -37,4 +37,5 @@ export default {
 .highlight-card
   min-width: 100px
   max-height: 200px
+  overflow: hidden
 </style>

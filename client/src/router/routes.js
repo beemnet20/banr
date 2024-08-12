@@ -8,8 +8,11 @@ const routes = [
       { path: '/expenditures', component: () => import('pages/ExpendituresPage.vue') },
       { path: '/contractors', component: () => import('pages/ContractorsPage.vue') },
       { path: '/projects/new', component: () => import('pages/ProjectsDetailPage.vue')},
-      { path: '/projects/new', component: () => import('pages/ProjectsDetailPage.vue')},
       { path: '/projects/:id(\\d+)', component: () => import('pages/ProjectsDetailPage.vue')},
+      {path: '/expenditures/new', component: ()=> import('pages/ExpendituresDetailPage.vue')},
+      {path: '/expenditures/:id(\\d+)', component: ()=> import('pages/ExpendituresDetailPage.vue')},
+      {path: '/contractors/new', component: ()=> import('pages/ContractorsDetailPage.vue')},
+      {path: '/contractors/:id(\\d+)', component: ()=> import('pages/ContractorsDetailPage.vue')},
     ]
   },
 

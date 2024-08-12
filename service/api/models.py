@@ -7,7 +7,7 @@ class Contractor(models.Model):
     company_name = models.CharField(max_length=50, null=False)
     field_of_work = models.CharField(max_length=50, null = True)
     contact_person = models.CharField(max_length=50, null = True)
-    phone_number = models.CharField(max_length=12, null = True)
+    phone_number = models.CharField(max_length=12, null = True, blank=True)
     email = models.EmailField(null = True)
 
     def __str__(self):
@@ -31,8 +31,8 @@ class Expenditure(models.Model):
     ]
     expense_name = models.CharField(max_length=100, null=False)
     amount = models.FloatField(null=False)
-    date_incurred = models.DateField(null=True)
-    description = models.TextField(null=True)
+    date_incurred = models.DateField(null=False)
+    description = models.TextField(null=True, blank=True)
     project = models.ForeignKey(
         'NuclearReactorConstructionProject',
         related_name='expenditures',
