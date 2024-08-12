@@ -3,7 +3,7 @@
         <div class="text-h6 q-ma-md">
             {{ projectId ? `Project: ${project.project_name}` : 'Create New Project' }}
         </div>
-        <div class="row">
+        <div v-if="projectId" class="row">
             <div class="col-4">
                 <HighlightCard prefix="$" :value="project.total_expenses" description=" spent" />
             </div>
