@@ -1,5 +1,5 @@
 <template>
-  <q-card class="q-pa-md q-ma-sm highlight-card col">
+  <q-card flat bordered class="q-pa-md q-ma-sm highlight-card col">
     <q-card-section>
       <div class="row items-center">
         <!-- Large Numeric Value -->

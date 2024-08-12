@@ -38,5 +38,9 @@ The data that comes with this repo is fictitious and used only for dev/practice 
 
 ![projects](screenshots/projects.png)
 
+![project details](screenshots/projectdetails.png)
+
+
+
 
 

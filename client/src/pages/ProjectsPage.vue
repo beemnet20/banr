@@ -35,8 +35,4 @@ export default {
 </script>
 
 <style scoped>
-/* Optional styling */
-.q-page {
-  max-width: 100%;
-}
 </style>
