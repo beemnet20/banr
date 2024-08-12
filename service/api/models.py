@@ -86,9 +86,9 @@ class NuclearReactorConstructionProject(models.Model):
         (OPERATIONAL, "Operational"),
     )
     project_name = models.CharField(max_length=25, null=False)
-    city = models.CharField(max_length=25, null=True)
-    state = models.CharField(max_length=25, null=True)
-    zipcode = models.CharField(max_length=10, null=True)
+    city = models.CharField(max_length=25, null=True, blank=True)
+    state = models.CharField(max_length=25, null=True, blank=True)
+    zipcode = models.CharField(max_length=10, null=True, blank=True)
     project_site_boundaries = models.JSONField(null=True)
     project_status = models.CharField(max_length=10, choices=PROJECT_STATUS_CHOICES,
                                       default=ACTIVE, null=True)
@@ -100,9 +100,9 @@ class NuclearReactorConstructionProject(models.Model):
     estimated_cost = models.FloatField(default=0.0, null=True)
     budget = models.FloatField(default=0.0, null=True)
     total_expenses = models.FloatField(default=0.0, null=True)
-    contractors = models.ManyToManyField('Contractor', related_name="projects", null=True)
+    contractors = models.ManyToManyField('Contractor', related_name="projects", blank=True)
     power_rating_gw = models.IntegerField(default=1, null=True)
-    notes = models.TextField(null=True)
+    notes = models.TextField(null=True, blank=True)
 
     def is_active(self):
         return self.project_status == self.ACTIVE

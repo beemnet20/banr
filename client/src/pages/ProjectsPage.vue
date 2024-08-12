@@ -3,8 +3,7 @@
 
 
     <div class="text-h6">Projects</div>
-
-
+    <q-btn to="/projects/new" label="Add a new project" class="q-my-md" color="primary"/>
 
     <GenericTable apiEndpoint="projects" :columns="tableColumns" />
 
