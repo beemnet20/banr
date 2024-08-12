@@ -174,7 +174,7 @@ export default {
                     type: 'positive',
                     message: 'Project deleted successfully!'
                 });
-                this.$router.push('/projects'); // Redirect to projects list or any other page
+                this.$router.push('/projects'); 
             } catch (error) {
                 console.error('Error deleting project:', error);
                 Notify.create({
